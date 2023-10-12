@@ -5,30 +5,29 @@
 
 int main(void)
 {
-	int str;
+	int val;
 	int i;
-	int test;
-	str = 55;
+	val = 98;
 
 
-	i = ft_isascii(str);
-	test = (isascii(str));
+	i = ft_isascii(val);
 	printf("%d ft_isascii\n", i);
-	printf("%d isascii\n", test);
+	i = (isascii(val));
+	printf("%d isascii\n", i);
 
 	printf("_______________  \n");
 	
-	i = ft_isalnum(str);
-	test = (isalnum(str));
+	i = ft_isalnum(val);
 	printf("%d ft_isalnum\n", i);
-	printf("%d isalnum\n", test);
+	i = (isalnum(val));
+	printf("%d isalnum\n", i);
 
 	printf("_______________  \n");
 	
-	i = ft_isprint(str);
-	test = (isprint(str));
+	i = ft_isprint(val);
 	printf("%d ft_isprint\n", i);
-	printf("%d isprint\n", test);
+	i = (isprint(val));
+	printf("%d isprint\n", i);
 
 
 	printf("_______________  \n");
@@ -51,13 +50,17 @@ int main(void)
 	printf("_______________  \n");
 
 
-	char strlentest[] = "salut les connards";
+	printf("buffer %s\n", buffer);	
+
+
+
+	char str[] = "salut les connards";
 	int len;
 
-	len = ft_strlen(strlentest);
+	len = ft_strlen(str);
 	printf("ft_strlen %d\n", len);
 
-	len = strlen(strlentest);
+	len = strlen(str);
 	printf("strlen %d\n", len);
 
 
