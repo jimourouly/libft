@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <ctype.h>
+#include "libft.h"
 
-int ft_isalnum(char c)
+int ft_isalnum(int c)
 {
 	if ((c >= 48) && (c <= 57))
 	{
@@ -13,18 +11,4 @@ int ft_isalnum(char c)
 		return (1);
 	}
 	return (0);
-}
-
-int main(void)
-{
-	
-	char str;
-	int isalnu;
-	int test;
-
-	str = '}';
-	test = isalnum(str);
-	isalnu = ft_isalnum(str);
-	printf("%d\n", test);
-	printf("%d\n", isalnu);
 }

@@ -1,5 +1,5 @@
 #nom du fichier de sortie apres compilation
-NAME=libft.a
+NAME = libft.a
 
 #nom du compilateur
 CC=gcc
@@ -8,9 +8,11 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
 #fichiers sources
-SRCS = main.c ft_isascii.c libft.h
+SRCS = main.c ft_isascii.c ft_isalnum.c ft_isprint.c ft_memset.c #ft_strlen.c
 
-#ft_isalnum.c ft_isascii.c ft_isprint.c ft_memset.c ft_strlen.c
+#header
+HEADERS = libft.h 
+
 
 OBJS = $(SRCS:.c=.o)
 
@@ -23,10 +25,10 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Pour executer le clean, make clean
-#clean:
+clean:
 	rm -f $(OBJS) $(NAME)
 
 #Full Clean
-#fclean: clean
+fclean: clean
 	rm -f $(NAME)
 
