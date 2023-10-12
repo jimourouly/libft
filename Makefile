@@ -8,7 +8,7 @@ CC=gcc
 CFLAGS=-Wall -Wextra -Werror
 
 #fichiers sources
-SRCS = main.c ft_isascii.c ft_isalnum.c ft_isprint.c ft_memset.c #ft_strlen.c
+SRCS = main.c ft_isascii.c ft_isalnum.c ft_isprint.c ft_memset.c ft_strlen.c
 
 #header
 HEADERS = libft.h 

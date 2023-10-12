@@ -1,6 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+#include "libft.h"
 
 int ft_strlen(char *str)
 {
@@ -12,18 +10,4 @@ int ft_strlen(char *str)
 		i++;
 	}
 	return (i);
-}
-
-int main(void)
-{
-	char str[] = "salut la compagnie";
-	int len;
-	int test;
-
-	//str[] = "salut la compagnie";
-	test = strlen(str);
-	len = ft_strlen(str);
-
-	printf("%d\n", test);
-	printf("%d\n", len);
 }

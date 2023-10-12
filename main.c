@@ -45,7 +45,24 @@ int main(void)
 	printf("buffer 15B5A : %s\n", buffer);
 
 	memset(buffer, 'X', 10);
-	printf("buffer 10X5B5A : %s\n", buffer);
+	printf("buffermemset 10X5B5A : %s\n", buffer);
+
+
+	printf("_______________  \n");
+
+
+	char strlentest[] = "salut les connards";
+	int len;
+
+	len = ft_strlen(strlentest);
+	printf("ft_strlen %d\n", len);
+
+	len = strlen(strlentest);
+	printf("strlen %d\n", len);
+
+
+	printf("_______________  \n");
+
 
 	return (0);
 }
