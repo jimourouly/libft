@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 08:53:28 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 08:53:31 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/14 12:45:40 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/14 13:01:04 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+char *ft_strchr(const char *s, int c)
 {
-	if (c >= 32 && c <= 126)
-	{
-		return (1);
-	}
-	return (0);
+	while((*s != '\0') && (*s != c))
+		s++;
+	if (*s == c)
+		return ((char *)s);
+	return (NULL);
 }

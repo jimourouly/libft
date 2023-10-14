@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 08:53:28 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 08:53:31 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/14 10:51:34 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/14 10:59:40 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+size_t ft_strlcpy (char *  dst, const char *  src, size_t dstsize)
 {
-	if (c >= 32 && c <= 126)
+	size_t i;
+
+	if(!dst || !src)
 	{
-		return (1);
+		return (0);
 	}
-	return (0);
+
+	i = 0;
+	while (src[i])
+		i++;
+	if (dstsize == 0)
+		return (i);
+	i = 0;
+	while (src[i] && i < dstsize -1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	i = 0;
+	while (src[i])
+		i++;
+	return (i);
 }

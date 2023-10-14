@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 08:53:28 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 08:53:31 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/14 11:37:34 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/14 12:00:08 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+size_t ft_strlcat (char * dst, const char * src, size_t dstsize)
 {
-	if (c >= 32 && c <= 126)
+	int i;
+	int n;
+	int tot;
+
+	i = 0;
+	n = 0;
+	while (dst[i])
+		i++;
+	while (src[n])
+		n++;
+	tot = n + i;
+
+	n = 0;
+	i = i + 1;
+	while (dst && (dstsize > 0))
 	{
-		return (1);
+		dst[i] = src[n];
+		i++;
+		n++;
+		dstsize --;
 	}
-	return (0);
+	return (tot);
 }
