@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:54 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 13:02:49 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/14 17:17:55 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,7 +247,9 @@ int main(void)
 	printf("_______________TEST STRCHR_______________  \n");
 	printf(" \n");
 
-	char let[10] = "aaaaagaaa";
+	memset(src, '\0', 50);
+	memset(src2, '\0', 50);
+	char let[10] = "aaagaagaaa";
 	char *res;
 
 	res = ft_strchr(let, val);
@@ -256,8 +258,129 @@ int main(void)
 	res = strchr(let, val);
 	printf("STRCHR result %s\n", res);
 
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST STRRCHR_______________  \n");
+	printf(" \n");
+
+	res = ft_strrchr(let, val);
+	printf("FT_STRRCHR result %s\n", res);
+	
+	res = strrchr(let, val);
+	printf("STRRCHR result %s\n", res);	
+
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST STRNCMP_______________  \n");
+	printf(" \n");
+
+	char a[15] = "bbbbba";
+	char b[15] = "bbbbbbbbbb";
+	printf("FT_STRNCMP result %d\n", ft_strncmp(a,b,4));
+	printf("STRNCMP result %d\n", strncmp(a,b,4));
 
 
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST MEMCHR_______________  \n");
+	printf(" \n");
+
+	const char ch = 109;
+
+	printf("str : %s\n", str);
+	printf("searching : %c\n", ch);
+
+	res = ft_memchr(str, ch, ft_strlen(str));
+	printf("FT_MEMCHR result :  %s\n", res);
+
+	res = memchr(str, ch, ft_strlen(str));
+	printf("MEMCHR result :  %s\n", res);
+
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST MEMCMP_______________  \n");
+	printf(" \n");
+
+	
+	
+	strcpy(src, "Salut tout le monde");
+	strcpy(src2, "Salut tous le monde");
+
+	printf("src %s\n", src);
+	printf("src2 %s\n", src2);
+	printf(" \n");
+	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
+	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
+	printf("_________  \n");
+	printf(" \n");
+
+	strcpy(src, "Salut tous le monde");
+	strcpy(src2, "Salut tout le monde");
+
+	printf("src %s\n", src);
+	printf("src2 %s\n", src2);
+	printf(" \n");
+	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
+	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
+	printf("_________  \n");
+	printf(" \n");
+
+	strcpy(src, "Salut tout le monde");
+	strcpy(src2, "Salut tout le monde");
+
+	printf("src %s\n", src);
+	printf("src2 %s\n", src2);
+	printf(" \n");
+	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
+	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
+	printf(" \n");
+
+
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST STRNSTR_______________  \n");
+	printf(" \n");
+
+	strcpy(src, "aaaaaaabcdef");
+	strcpy(src2, "bcd");
+	i = 5;
+
+	printf("FT_STRNSTR\n");
+	printf("len = %i res =%s \n",i ,ft_strnstr(src,src2,i));
+	printf("STRNSTR\n");
+	printf("len = %i res =%s \n",i ,strnstr(src,src2,i));
+
+	printf(" \n");
+	printf(" \n");
+
+
+	i = 12;
+	printf("FT_STRNSTR\n");
+	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
+	printf("STRNSTR\n");
+	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
+
+	printf(" \n");
+	printf(" \n");
+
+	strcpy(src, "aaaaaaabcdef");
+	strcpy(src2, "");
+	i = 12;
+	printf("FT_STRNSTR\n");
+	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
+	printf("STRNSTR\n");
+	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
+
+	printf(" \n");
+	printf(" \n");
+
+	strcpy(src, "aaaaaaf");
+	strcpy(src2, "abcd");
+	i = 12;
+	printf("FT_STRNSTR\n");
+	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
+	printf("STRNSTR\n");
+	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
 
 	return (0);
 }
