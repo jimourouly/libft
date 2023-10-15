@@ -16,10 +16,122 @@
 #include <bsd/string.h>
 #include "libft.h"
 
+#define AC_BLACK "\x1b[30m"
+#define AC_RED "\x1b[31m"
+#define AC_GREEN "\x1b[32m"
+#define AC_YELLOW "\x1b[33m"
+#define AC_BLUE "\x1b[34m"
+#define AC_MAGENTA "\x1b[35m"
+#define AC_CYAN "\x1b[36m"
+#define AC_WHITE "\x1b[37m"
+#define AC_NORMAL "\x1b[m"
+
+
+void ft_testint(int i, int k)
+{
+	if(i == k)
+	{
+    		printf("%s\t Test passed\n",AC_GREEN);
+    		printf("%s \n", AC_NORMAL);
+	}
+	else 
+	{
+		printf("%s\t Test failed\n",AC_RED);
+		printf("%s \n", AC_NORMAL);
+	}
+}
+
+void ft_testchar(char *i, char *k)
+{
+	if(i == k)
+	{
+    		printf("%s\t Test passed\n",AC_GREEN);
+    		printf("%s \n", AC_NORMAL);
+	}
+	else 
+	{
+		printf("%s\t Test failed\n",AC_RED);
+		printf("%s \n", AC_NORMAL);
+	}
+}
+	
+void ft_testatoi(char * src)
+{
+
+	printf("testing ' %s'\n",src);
+	printf("FT_ATOI \n \t result : %d\n",ft_atoi(src));
+	printf("ATOI \n \t result : %d\n",atoi(src));
+	ft_testint((ft_atoi(src)), (atoi(src)));
+	printf(" \n");
+}
+
+
+
+void ft_testmemcmp(char *src, char *src2)
+{
+	int i = 0;
+	printf("Src = %s\n", src);
+	printf("Src2 = %s\n", src2);
+	printf("FT_MEMCMP result =  %d\n", ft_memcmp(src, src2, 10));
+	printf("MEMCMP result = %d\n", memcmp(src, src2, 10));
+	ft_testchar(ft_strnstr(src,src2,i),strnstr(src,src2,i));
+	printf(" \n");
+}
+
+
+	
+void ft_teststrnstr(char *src, char *src2, int i)
+{
+	printf("\nhaystack =  %s \nneedle = %s \nlenght i = %d \n",src, src2,i);
+	printf("FT_STRNSTR\n");
+	printf("res = %s \n",ft_strnstr(src,src2,i));
+	printf("STRNSTR\n");
+	printf("res = %s \n",strnstr(src,src2,i));
+	ft_testchar(ft_strnstr(src,src2,i),strnstr(src,src2,i));
+
+
+}
+
+void ft_testmemchr(char *str, int ch, int i)
+{
+	char *res;
+	printf("str : %s\n", str);
+	printf("searching : %c\n", ch);
+	printf("length : %d\n", i);
+
+	res = ft_memchr(str, ch, i);
+	printf("FT_MEMCHR result :  %s\n", res);
+
+	res = memchr(str, ch, i);
+	printf("MEMCHR result :  %s\n", res);
+	ft_testchar((ft_memchr(str, ch, i)),(memchr(str, ch, i)));
+}
+
+void ft_teststrncmp(char *a, char *b, int i)
+{
+	printf("String1 = %s\nString2 = %s\nlenght = %d\n\n",a,b,i);
+	printf("FT_STRNCMP result %d\n", ft_strncmp(a,b,i));
+	printf("STRNCMP result %d\n", strncmp(a,b,i));
+	ft_testint(strncmp(a,b,i),ft_strncmp(a,b,i));
+}
+
+void ft_teststrrchr (char *dest, int tofind, char c)
+{
+
+	printf("Testing : %s\nTofind : %c\n\n",dest,c);
+	printf("FT_STRRCHR result %s\n", ft_strrchr(dest, tofind));
+	printf("STRRCHR result %s\n", strrchr(dest, tofind));
+	ft_testchar(ft_strrchr(dest, tofind), strrchr(dest, tofind));
+}
+
+
 int main(void)
 {
+	char ch;
 	int val;
 	int i;
+	char a[15];
+	char b[15];
 	val = 103;
 	printf(" \n");
 	printf(" \n");
@@ -70,7 +182,7 @@ int main(void)
 	memset(buffer, 'X', 10);
 	printf("buffermemset 10X5B5A : %s\n", buffer);
 
-
+	//printf("%d\n", Result);
 	printf(" \n");
 	printf(" \n");
 	printf("_______________TEST BZERO_______________  \n");
@@ -250,7 +362,7 @@ int main(void)
 
 	memset(src, '\0', 50);
 	memset(src2, '\0', 50);
-	char let[10] = "aaagaagaaa";
+	char let[20] = "aaagaagaaa";
 	char *res;
 
 	res = ft_strchr(let, val);
@@ -264,21 +376,44 @@ int main(void)
 	printf("_______________TEST STRRCHR_______________  \n");
 	printf(" \n");
 
-	res = ft_strrchr(let, val);
-	printf("FT_STRRCHR result %s\n", res);
+
+	strcpy(let, "aaaaabaaaabaaaa");
+	val = 'b';
+	ft_teststrrchr(let, val, val);
 	
-	res = strrchr(let, val);
-	printf("STRRCHR result %s\n", res);	
+	strcpy(let, "bbbbbbbbbbbaaba");
+	val = 'b';
+	ft_teststrrchr(let, val, val);
 
 	printf(" \n");
 	printf(" \n");
 	printf("_______________TEST STRNCMP_______________  \n");
 	printf(" \n");
 
-	char a[15] = "bbbbba";
-	char b[15] = "bbbbbbbbbb";
-	printf("FT_STRNCMP result %d\n", ft_strncmp(a,b,4));
-	printf("STRNCMP result %d\n", strncmp(a,b,4));
+	strcpy(a, "aaaaab");
+	strcpy(b, "bbbbba");
+	i = 10;
+	ft_teststrncmp(a, b, i);
+	
+	strcpy(a, "aaaaab");
+	strcpy(b, "aaaaab");
+	i = 10;
+	ft_teststrncmp(a, b, i);
+	
+	strcpy(a, "aaaaab");
+	strcpy(b, "aaaaab");
+	i = 1;
+	ft_teststrncmp(a, b, i);
+	
+	strcpy(a, "aaaaaab");
+	strcpy(b, "aaaaab");
+	i = 10;
+	ft_teststrncmp(a, b, i);
+	
+	strcpy(a, "aaafaab");
+	strcpy(b, "aAaaaab");
+	i = 10;
+	ft_teststrncmp(a, b, i);
 
 
 	printf(" \n");
@@ -286,57 +421,43 @@ int main(void)
 	printf("_______________TEST MEMCHR_______________  \n");
 	printf(" \n");
 
-	const char ch = 109;
 
-	printf("str : %s\n", str);
-	printf("searching : %c\n", ch);
-
-	res = ft_memchr(str, ch, ft_strlen(str));
-	printf("FT_MEMCHR result :  %s\n", res);
-
-	res = memchr(str, ch, ft_strlen(str));
-	printf("MEMCHR result :  %s\n", res);
-
+	ch = 109;
+	i = 20;
+	strcpy(src, "Salut tout le monde");
+	ft_testmemchr(str, ch, i);
+	
+	ch = 109;
+	i = 16;
+	strcpy(src, "Salut tout le monde");
+	ft_testmemchr(str, ch, i);
+	
+	ch = 4;
+	i = 20;
+	strcpy(src, "Salut tout le monde");
+	ft_testmemchr(str, ch, i);
+	
+	ch = 128;
+	i = 0;
+	strcpy(src, "Salut tout le monde");
+	ft_testmemchr(str, ch, i);
+	
 	printf(" \n");
 	printf(" \n");
 	printf("_______________TEST MEMCMP_______________  \n");
 	printf(" \n");
 
-	
-	
 	strcpy(src, "Salut tout le monde");
 	strcpy(src2, "Salut tous le monde");
-
-	printf("src %s\n", src);
-	printf("src2 %s\n", src2);
-	printf(" \n");
-	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
-	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
-	printf("_________  \n");
-	printf(" \n");
-
+	ft_testmemcmp(src, src2);
+	
 	strcpy(src, "Salut tous le monde");
 	strcpy(src2, "Salut tout le monde");
-
-	printf("src %s\n", src);
-	printf("src2 %s\n", src2);
-	printf(" \n");
-	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
-	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
-	printf("_________  \n");
-	printf(" \n");
-
+	ft_testmemcmp(src, src2);
+	
 	strcpy(src, "Salut tout le monde");
 	strcpy(src2, "Salut tout le monde");
-
-	printf("src %s\n", src);
-	printf("src2 %s\n", src2);
-	printf(" \n");
-	printf("FT_MEMCMP result %d\n", ft_memcmp(src, src2, 10));
-	printf("MEMCMP result %d\n", memcmp(src, src2, 10));
-	printf(" \n");
-
-
+	ft_testmemcmp(src, src2);
 	printf(" \n");
 	printf(" \n");
 	printf("_______________TEST STRNSTR_______________  \n");
@@ -345,98 +466,39 @@ int main(void)
 	strcpy(src, "aaaaaaabcdef");
 	strcpy(src2, "bcd");
 	i = 5;
-
-	printf("FT_STRNSTR\n");
-	printf("len = %i res =%s \n",i ,ft_strnstr(src,src2,i));
-	printf("STRNSTR\n");
-	printf("len = %i res =%s \n",i ,strnstr(src,src2,i));
-
-	printf(" \n");
-	printf(" \n");
-
-
+	ft_teststrnstr(src, src2, i);
 	i = 12;
-	printf("FT_STRNSTR\n");
-	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
-	printf("STRNSTR\n");
-	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
-
-	printf(" \n");
-	printf(" \n");
-
+	ft_teststrnstr(src, src2, i);
 	strcpy(src, "aaaaaaabcdef");
 	strcpy(src2, "");
 	i = 12;
-	printf("FT_STRNSTR\n");
-	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
-	printf("STRNSTR\n");
-	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
-
-	printf(" \n");
-	printf(" \n");
-
+	ft_teststrnstr(src, src2, i);
 	strcpy(src, "aaaaaaf");
 	strcpy(src2, "abcd");
 	i = 12;
-	printf("FT_STRNSTR\n");
-	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
-	printf("STRNSTR\n");
-	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
-	
-	printf(" \n");
-	printf(" \n");
+	ft_teststrnstr(src, src2, i);
+
 	printf("_______________TEST ATOI_______________  \n");
 	printf(" \n");
 
+	strcpy(src, "");
 	strcpy(src,"123");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"-123");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"1s23");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"-12s3");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"    -12f3");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"-+123");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"\t++123");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
-	
+	ft_testatoi(src);
 	strcpy(src,"-12s3");
-	printf("SRC %s\n",src);
-	printf("FT_ATOI %d\n",ft_atoi(src));
-	printf("ATOI %d\n",atoi(src));
-	printf(" \n");
+	ft_testatoi(src);
 
-	
 
 	return (0);
 }
