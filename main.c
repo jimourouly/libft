@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int main(void)
@@ -381,6 +382,61 @@ int main(void)
 	printf("len = %i res = %s \n",i ,ft_strnstr(src,src2,i));
 	printf("STRNSTR\n");
 	printf("len = %i res = %s \n",i ,strnstr(src,src2,i));
+	
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST ATOI_______________  \n");
+	printf(" \n");
+
+	strcpy(src,"123");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"-123");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"1s23");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"-12s3");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"    -12f3");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"-+123");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"\t++123");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+	
+	strcpy(src,"-12s3");
+	printf("SRC %s\n",src);
+	printf("FT_ATOI %d\n",ft_atoi(src));
+	printf("ATOI %d\n",atoi(src));
+	printf(" \n");
+
+	
 
 	return (0);
 }
