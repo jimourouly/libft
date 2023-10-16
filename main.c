@@ -6,14 +6,14 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:54 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 17:17:55 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/16 17:22:32 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <bsd/string.h>
+//#include <bsd/string.h>
 #include "libft.h"
 
 #define AC_BLACK "\x1b[30m"
@@ -437,7 +437,7 @@ int main(void)
 	strcpy(src, "Salut tout le monde");
 	ft_testmemchr(str, ch, i);
 	
-	ch = 128;
+	ch = 126;
 	i = 0;
 	strcpy(src, "Salut tout le monde");
 	ft_testmemchr(str, ch, i);
