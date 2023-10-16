@@ -6,12 +6,13 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:54 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/16 17:22:32 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/16 20:42:30 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 //#include <bsd/string.h>
 #include "libft.h"
@@ -43,6 +44,7 @@ void ft_testint(int i, int k)
 
 void ft_testchar(char *i, char *k)
 {
+
 	if(i == k)
 	{
     		printf("%s\t Test passed\n",AC_GREEN);
@@ -124,6 +126,65 @@ void ft_teststrrchr (char *dest, int tofind, char c)
 	ft_testchar(ft_strrchr(dest, tofind), strrchr(dest, tofind));
 }
 
+void ft_testcalloc(int i, int x)
+{
+	char *res;
+	int j;
+	int k;
+	j = 1;
+	k = 1;
+
+	printf("Testing allocating memory\n");
+	printf("\n");
+	res  = ft_calloc(i, x);
+	printf("\tTesting ft_calloc\n");
+	if(!res)
+	{
+    	printf("%s",AC_RED);
+		printf("Memory not allocated\n");
+    	printf("%s", AC_NORMAL);
+		j = 0;
+	}
+	else
+	{
+    	printf("%s",AC_GREEN);
+		printf("Memory allocated\n");
+    	printf("%s", AC_NORMAL);
+		printf("Memory adress %p\n\n", res);
+	}
+
+	res = calloc(i, x);
+	printf("\tTesting calloc\n");
+	if(!res)
+	{
+    	printf("%s",AC_RED);
+		printf("Memory not allocated\n");
+    	printf("%s", AC_NORMAL);
+		k = 0;
+	}
+	else 
+	{
+    	printf("%s",AC_GREEN);
+		printf("Memory allocated\n");
+    	printf("%s", AC_NORMAL);
+		printf("Memory adress %p\n\n", res);
+	}
+
+	ft_testint(j, k);
+}
+
+void ft_teststrdup(char *s1)
+{
+	char *c;
+	char *d;
+	printf("\nTesting '%s'\n", s1);
+	c = ft_strdup(s1);
+	printf("FT_STRDUP result = :%s:\n", c);
+	d = strdup(s1);
+	printf("STRDUP result = :%s:\n", d);
+	ft_testchar(c, d);
+
+}
 
 int main(void)
 {
@@ -132,6 +193,8 @@ int main(void)
 	int i;
 	char a[15];
 	char b[15];
+	int *ptrint;
+	ptrint = 0;
 	val = 103;
 	printf(" \n");
 	printf(" \n");
@@ -490,7 +553,9 @@ int main(void)
 	ft_testatoi(src);
 	strcpy(src,"-12s3");
 	ft_testatoi(src);
-	strcpy(src,"    -12f3");
+	strcpy(src,"   -12f3");
+	ft_testatoi(src);
+	strcpy(src,"   --12f3");
 	ft_testatoi(src);
 	strcpy(src,"-+123");
 	ft_testatoi(src);
@@ -500,5 +565,30 @@ int main(void)
 	ft_testatoi(src);
 
 
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST FT_CALLOC_______________  \n");
+	printf(" \n");
+
+
+	ft_testcalloc(i, val);
+
+
+	printf("_______________TEST FT_STRDUP_______________  \n");
+	printf(" \n");
+
+	char s1[20] = "salut";
+	ft_teststrdup(s1); 
+	strcpy(s1,"bonsoir");
+	ft_teststrdup(s1); 
+	strcpy(s1,"aurevoir");
+	ft_teststrdup(s1); 
+	strcpy(s1,"la bise");
+	ft_teststrdup(s1); 
+
+
+
+	
+	
 	return (0);
 }

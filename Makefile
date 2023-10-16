@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/16 17:40:31 by jroulet          ###   ########.fr        #
+#    Updated: 2023/10/16 19:32:52 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,9 @@ SRCS = main.c \
 	   ft_memchr.c\
 	   ft_memcmp.c\
 	   ft_strnstr.c\
-	   ft_atoi.c
+	   ft_atoi.c\
+	   ft_calloc.c\
+	   ft_strdup.c
 #header
 #HEADERS = libft.h 
 
@@ -53,7 +55,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(OBJS) $(NAME) clean
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
