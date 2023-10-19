@@ -18,7 +18,7 @@ NAME = libft.a
 CC=gcc
 
 # library a ajouter (ubuntu)
-#LIBS = -lbsd
+LIBS = -lbsd
 
 #flags de compilation
 CFLAGS=-Wall -Wextra -Werror
@@ -47,15 +47,15 @@ SRCS = main.c \
 	   ft_calloc.c\
 	   ft_strdup.c
 #header
-#HEADERS = libft.h 
+HEADERS = libft.h 
 
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(OBJS) $(NAME) clean
+all: $(OBJS) $(NAME)  clean
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS) #comments on $(LIBS) for MAC
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

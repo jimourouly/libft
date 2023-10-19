@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+#include <bsd/string.h>
 
 
 int ft_isascii(int c);

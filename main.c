@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <bsd/string.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-//#include <bsd/string.h>
 #include "libft.h"
 
 #define AC_BLACK "\x1b[30m"
@@ -193,8 +193,8 @@ int main(void)
 	int i;
 	char a[15];
 	char b[15];
-	int *ptrint;
-	ptrint = 0;
+//	int *ptrint;
+//	ptrint = 0;
 	val = 103;
 	printf(" \n");
 	printf(" \n");
