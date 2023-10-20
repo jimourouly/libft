@@ -1,25 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/14 08:54:07 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/19 18:17:18 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/19 18:30:15 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/19 19:05:50 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *str)
+char *ft_strjoin(const char *s1, const char *s2)
 {
 	int i;
+	int j;
+	char *new;
+	int lentot;
 
 	i = 0;
-	while(str[i])
+	j = 0;
+
+	lentot = (ft_strlen(s1) + ft_strlen(s2));
+
+	new = (char *) malloc((lentot + 1) * sizeof(char));
+	if(!new)
+		return (NULL);
+	while (s1[i])
 	{
+		new[j] = s1[i];
+		j++;
 		i++;
 	}
-	return (i);
+	i = 0;
+	while (s2[i])
+	{
+		new[j] = s2[i];
+		i++;
+		j++;
+	}
+	new[j] = 0;
+
+	return (new);
+
 }

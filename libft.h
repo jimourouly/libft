@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/16 20:20:06 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/20 17:48:06 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
-#include <bsd/string.h>
 
 
 int ft_isascii(int c);
@@ -32,8 +31,10 @@ char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
 char *ft_strnstr(const char *haystack, const char *needle, size_t len);
 char *ft_strdup(const char *s1);
-char *ft_substr(char const *s, unsigned int start, size_t len);
+char *ft_substr(const char *s , unsigned int start, size_t len);
+char *ft_strjoin(const char *s1, char const *s2);
 char *ft_strtrim(const char *s1, const char *set);
+char **ft_split(const char *s, char c);
 
 void *ft_memset(void *s, int c, size_t len);
 void ft_bzero(void *s, size_t len);

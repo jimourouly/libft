@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/16 19:32:52 by jroulet          ###   ########.fr        #
+#    Updated: 2023/10/20 17:47:24 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libft.a
 CC=gcc
 
 # library a ajouter (ubuntu)
-LIBS = -lbsd
+#LIBS = -lbsd
 
 #flags de compilation
 CFLAGS=-Wall -Wextra -Werror
@@ -46,17 +46,27 @@ SRCS = main.c \
 	   ft_atoi.c\
 	   ft_calloc.c\
 	   ft_strdup.c\
-	   ft_strtrim.c
+	   ft_substr.c\
+	   ft_strjoin.c\
+	   ft_strtrim.c\
+	   ft_split.c \
+	   #ft_itoa.c \
+	   #ft_strmapi.c \
+	   #ft_striteri.c \
+	   #ft_putchar_fd.c \
+	   #ft_putstr_fd.c \
+	   #ft_putendl_fd.c \
+	   #ft_putnbr_fd.c \
 #header
-HEADERS = libft.h 
+#HEADERS = libft.h 
 
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(OBJS) $(NAME)  clean
+all: $(OBJS) $(NAME) clean
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS) #comments on $(LIBS) for MAC
+	$(CC) $(CFLAGS) -o $@ $(OBJS) #$(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

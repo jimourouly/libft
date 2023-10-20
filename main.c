@@ -6,11 +6,11 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:54 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/16 20:42:30 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/20 21:01:46 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <bsd/string.h>
+/*#include <bsd/string.h>*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -597,6 +597,23 @@ int main(void)
 	
 	printf("strtrim %s\n",ft_strtrim(s1,a));
 	
-	
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST FT_SPLIT_______________  \n");
+	printf(" \n");
+
+	i = 0;
+	char **tab;
+	char sep;
+
+	sep = 'v';
+	tab = ft_split("unvdeuxvtroisvquatrevvsalutvvg", sep);
+	while (tab[i])
+	{
+		printf("string %d : %s\n", i, tab[i]);
+		i++;
+	}
+
+		
 	return (0);
 }
