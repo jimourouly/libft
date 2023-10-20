@@ -586,8 +586,16 @@ int main(void)
 	strcpy(s1,"la bise");
 	ft_teststrdup(s1); 
 
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST FT_STRTRIM_______________  \n");
+	printf(" \n");
 
 
+	strcpy(s1,"aaeaebabababeaaaa");
+	strcpy(a,"ae");
+	
+	printf("strtrim %s\n",ft_strtrim(s1,a));
 	
 	
 	return (0);
