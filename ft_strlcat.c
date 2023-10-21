@@ -6,17 +6,17 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 11:37:34 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 12:00:08 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/21 20:04:45 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcat (char * dst, const char * src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int i;
-	int n;
-	int tot;
+	int	i;
+	int	n;
+	int	tot;
 
 	i = 0;
 	n = 0;
@@ -25,7 +25,6 @@ size_t ft_strlcat (char * dst, const char * src, size_t dstsize)
 	while (src[n])
 		n++;
 	tot = n + i;
-
 	n = 0;
 	i = i + 1;
 	while (dst && (dstsize > 0))

@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 18:30:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 20:00:37 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/21 14:53:46 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/21 20:06:48 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	int		i;
-	int		j;
-	char	*new;
-	int		lentot;
+	unsigned int	i;
+	char			*res;
+	unsigned int	slen;
 
-	i = 0;
-	j = 0;
-	lentot = (ft_strlen(s1) + ft_strlen(s2));
-	new = (char *) malloc((lentot + 1) * sizeof(char));
-	if (!new)
+	slen = ft_strlen(s);
+	res = malloc(((slen + 1) * sizeof(char)));
+	if (!res)
 		return (NULL);
-	while (s1[i])
-	{
-		new[j++] = s1[i++];
-	}
 	i = 0;
-	while (s2[i])
+	while (i < slen)
 	{
-		new[j++] = s2[i++];
+		res[i] = (*f)(i, s[i]);
+		i++;
 	}
-	new[j] = 0;
-	return (new);
+	res[slen] = 0;
+	return (res);
 }

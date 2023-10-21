@@ -6,15 +6,15 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:17:55 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 12:19:21 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/21 20:20:48 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper (int c)
+int	ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		c = c - 32;
-   return (c);	
+	return (c);
 }

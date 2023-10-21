@@ -6,16 +6,16 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:51:56 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 09:30:11 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/21 19:27:15 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t len)
+void	ft_bzero(void *s, size_t len)
 {
-	unsigned char *p;
-	size_t i;
+	unsigned char	*p;
+	size_t			i;
 
 	p = s;
 	i = 0;

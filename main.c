@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:54 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/20 21:01:46 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/21 17:40:12 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,18 @@ void ft_teststrdup(char *s1)
 
 }
 
+void ft_teststriteri(char *c)
+{
+	c = c - '0';
+	printf("C = %s\n", c);
+}
+
+char ft_strmapitest(unsigned int i, char str)
+{
+	printf("Putting %c in CAPITAL : index = %d \n",str, i);
+	return str - 32;
+}
+
 int main(void)
 {
 	char ch;
@@ -193,8 +205,6 @@ int main(void)
 	int i;
 	char a[15];
 	char b[15];
-//	int *ptrint;
-//	ptrint = 0;
 	val = 103;
 	printf(" \n");
 	printf(" \n");
@@ -614,6 +624,48 @@ int main(void)
 		i++;
 	}
 
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST FT_ITOA_______________  \n");
+	printf(" \n");
+
+	char *p;
+	i = -56985;
+	printf("int = %d\n", i);
+	p = ft_itoa(i);
+	printf("char = %s\n", p);
+
+	printf(" \n");
+	i = -2147483648;
+	printf("int = %d\n", i);
+	p = ft_itoa(i);
+	printf("char = %s\n", p);
 		
+	printf(" \n");
+	i = -0;
+	printf("int = %d\n", i);
+	p = ft_itoa(i);
+	printf("char = %s\n", p);
+
+	printf(" \n");
+
+	printf(" \n");
+	printf(" \n");
+	printf("_______________TEST FT_STRMAPI______________  \n");
+	printf(" \n");
+
+
+
+
+
+ 	char strtest[10] = "salut";
+ 	printf("Testing with %s\n", strtest);
+ 	char *result = ft_strmapi(strtest, ft_strmapitest);
+ 	printf("Result %s\n", result);
+
+	
+
+
+
 	return (0);
 }

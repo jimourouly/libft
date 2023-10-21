@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 18:30:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 20:00:37 by jroulet          ###   ########.fr       */
+/*   Created: 2023/10/21 17:55:34 by jroulet           #+#    #+#             */
+/*   Updated: 2023/10/21 19:43:36 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	int		j;
-	char	*new;
-	int		lentot;
-
-	i = 0;
-	j = 0;
-	lentot = (ft_strlen(s1) + ft_strlen(s2));
-	new = (char *) malloc((lentot + 1) * sizeof(char));
-	if (!new)
-		return (NULL);
-	while (s1[i])
+	if (n == -2147483648)
 	{
-		new[j++] = s1[i++];
+		write(fd, "-2147483648", 11);
 	}
-	i = 0;
-	while (s2[i])
+	if (n < 0)
 	{
-		new[j++] = s2[i++];
+		write(fd, "-", 1);
+		n = -n;
+		ft_putnbr_fd(n, fd);
 	}
-	new[j] = 0;
-	return (new);
+	if (n > 9)
+	{
+		ft_putnbr_fd((n / 10), fd);
+		ft_putnbr_fd((n % 10), fd);
+	}
+	if (n < 9)
+	{
+		n = (n +48);
+		ft_putchar_fd(n, fd);
+	}
 }

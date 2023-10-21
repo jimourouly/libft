@@ -6,13 +6,13 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:53:06 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/14 08:53:07 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/21 19:29:40 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
 	if ((c >= 48) && (c <= 57))
 	{

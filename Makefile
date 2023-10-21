@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/20 17:47:24 by jroulet          ###   ########.fr        #
+#    Updated: 2023/10/21 19:17:11 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,13 @@ CC=gcc
 #LIBS = -lbsd
 
 #flags de compilation
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror
+
+MAIN = main.c
 
 #fichiers sources
-SRCS = main.c \
-	   ft_isascii.c\
+SRCS = ft_isascii.c\
+	   ft_isalpha.c\
 	   ft_isalnum.c\
 	   ft_isprint.c\
 	   ft_memset.c\
@@ -50,34 +52,36 @@ SRCS = main.c \
 	   ft_strjoin.c\
 	   ft_strtrim.c\
 	   ft_split.c \
-	   #ft_itoa.c \
-	   #ft_strmapi.c \
-	   #ft_striteri.c \
-	   #ft_putchar_fd.c \
-	   #ft_putstr_fd.c \
-	   #ft_putendl_fd.c \
-	   #ft_putnbr_fd.c \
-#header
-#HEADERS = libft.h 
+	   ft_itoa.c \
+	   ft_strmapi.c \
+	   ft_striteri.c \
+	   ft_putchar_fd.c \
+	   ft_putstr_fd.c \
+	   ft_putendl_fd.c \
+	   ft_putnbr_fd.c\
 
+OBJS = $(SRCS:%.c=%.o)
 
-OBJS = $(SRCS:.c=.o)
+RM = rm -f
 
-all: $(OBJS) $(NAME) clean
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) #$(LIBS)
+	ar rcs $(NAME) $(OBJS)
+
+#compile : all 
+#	$(CC) $(CFLAGS) $(MAIN) $(NAME) $(OBJS) #$(LIBS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #Pour executer le clean, make clean
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS)
 
 #Full Clean
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
