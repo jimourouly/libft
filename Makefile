@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/25 14:57:25 by jroulet          ###   ########.fr        #
+#    Updated: 2023/10/25 19:12:38 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,21 @@ SRCS = ft_isascii.c\
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c\
 
+BSRCS = ft_lstnew.c\
+		ft_lstadd_front.c\
+		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
+		ft_lstiter.c\
+		ft_lstmap.c
+
+
+
 OBJS = $(SRCS:%.c=%.o)
+
+BOBJS = $(BSRCS:%.c=%.o)
 
 RM = rm -f
 
@@ -69,6 +83,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
+
+bonus: $(BOBJS)
+	ar rcs $(NAME) $(OBJS) $(BOBJS)
 
 #compile : all 
 #	$(CC) $(CFLAGS) $(MAIN) $(NAME) $(OBJS) #$(LIBS)
@@ -78,7 +95,7 @@ $(NAME): $(OBJS)
 
 #Pour executer le clean, make clean
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BOBJS)
 
 #Full Clean
 fclean: clean
