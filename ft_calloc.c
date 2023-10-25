@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 17:45:08 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 19:28:49 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/25 13:56:17 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	unsigned char	*ptr;
+	size_t			i;
 
-	ptr = (void *)malloc(count * size);
+	i = 0;
+	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count);
+	while (i < count * size)
+		ptr[i++] = 0;
 	return (ptr);
-	free (ptr);
 }

@@ -6,13 +6,13 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:51:52 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 19:42:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/25 10:48:37 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 

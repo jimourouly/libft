@@ -6,12 +6,10 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 21:22:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 19:35:18 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/25 12:05:10 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static char	*createtab(int i)
@@ -42,7 +40,6 @@ long	charcounter(int nbr)
 		nbr /= 10;
 		i++;
 	}
-	printf("count = %d\n", i);
 	return (i);
 }
 

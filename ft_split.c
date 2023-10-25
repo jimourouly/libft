@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 19:15:31 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 20:33:02 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:32:35 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,90 +19,84 @@ int	count_word(const char *str, char sep)
 
 	i = 0;
 	cnt = 0;
-	while (str[i])
+	while (*str)
 	{
-		while (str[i] && (str[i] == sep))
-			i++;
-		if (str[i] && str[i] != sep)
+		if (*str != sep && i == 0)
 		{
-			while (str[i] && str[i] != sep)
-				i++;
+			i = 1;
 			cnt++;
 		}
+		else if (*str == sep)
+			i = 0;
+		str++;
 	}
 	return (cnt);
 }
 
-int	word_len(const char *str, char sep)
-{
-	int	cnt;
-	int	i;
-
-	cnt = 0;
-	i = 0;
-	while (str[i] && str[i] != sep)
-	{
-		cnt++;
-		i++;
-	}
-	return (cnt);
-}
-
-void	ft_free(char **tab)
+static void	*ft_free(char **tab, int count)
 {
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	while (i < count)
 	{
 		free(tab[i]);
-				i++;
+		i++;
 	}
 	free(tab);
+	return (NULL);
 }
 
-static char	*createtab(int i)
+static void	ft_initiate_vars(size_t *i, size_t *j, int *start_word )
 {
-	char	*tab;
-
-	tab = malloc((i + 1) * sizeof(char));
-	if (!tab)
-		return (NULL);
-	tab[0] = '0';
-	return (tab);
+	*i = 0;
+	*j = 0;
+	*start_word = -1;
 }
 
-char	**ft_split(const char *str, char sep)
+static char	*putword(const char *str, int start, int end)
 {
+	char	*word;
 	int		i;
-	int		j;
-	char	**tab;
-	int		l;
-	int		len;
 
 	i = 0;
-	j = 0;
-	tab = malloc(sizeof(char *) * (count_word(str, sep) + 1));
+	word = malloc((end - start + 1) * sizeof(char));
+	if (!word)
+		return (0);
+	while (start < end)
+	{
+		word[i] = str[start];
+		i++;
+		start++;
+	}
+	word[i] = '\0';
+	return (word);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char		**tab;
+	size_t		i;
+	size_t		j;
+	int			start_word;
+
+	ft_initiate_vars(&i, &j, &start_word);
+	tab = ft_calloc((count_word(s, c) + 1), sizeof(char *));
 	if (!tab)
 		return (NULL);
-	while (str[i])
+	while (i <= ft_strlen(s))
 	{
-		while (str[i] && (str[i] == sep))
-			i++;
-		if (str[i])
+		if (s[i] != c && start_word < 0)
+			start_word = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && start_word >= 0)
 		{
-			len = word_len(str + i, sep);
-			if (!(tab[j] = malloc(sizeof(char) * (len + 1))))
-				return (NULL);
-			l = 0;
-			while (l < len)
-			{
-				tab[j][l++] = str[i++];
-			}
-			tab[j++][len] = '\0';
+			tab[j] = putword(s, start_word, i);
+			if (!(tab[j]))
+				return (ft_free(tab, j));
+			start_word = -1;
+			j++;
 		}
+		i++;
 	}
-	tab[j] = NULL;
 	return (tab);
-	ft_free(tab);
 }

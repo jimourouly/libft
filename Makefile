@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/21 19:17:11 by jroulet          ###   ########.fr        #
+#    Updated: 2023/10/25 14:57:25 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ MAIN = main.c
 
 #fichiers sources
 SRCS = ft_isascii.c\
+	   ft_isdigit.c\
 	   ft_isalpha.c\
 	   ft_isalnum.c\
 	   ft_isprint.c\

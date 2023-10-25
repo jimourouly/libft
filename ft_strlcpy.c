@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 10:51:34 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/21 20:05:33 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/10/25 15:12:50 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	if (!dst || !src)
 	{
+		dst[0] = '\0';
 		return (0);
 	}
 	i = 0;
