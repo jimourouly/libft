@@ -6,20 +6,22 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 14:00:03 by jroulet           #+#    #+#             */
-/*   Updated: 2023/12/09 14:28:44 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/12/09 16:30:37 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node_t *ft_node_find(node_t *head, int value)
+t_node	*ft_node_find(t_node *head, int value)
 {
-	node_t *temp = head; 
+	t_node	*temp;
+
+	temp = head;
 	while (temp != NULL)
 	{
 		if (temp->value == value)
-			return temp;
+			return (temp);
 		temp = temp->next;
 	}
-	return NULL;
+	return (NULL);
 }

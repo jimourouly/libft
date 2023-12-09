@@ -6,17 +6,18 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 13:57:58 by jroulet           #+#    #+#             */
-/*   Updated: 2023/12/09 14:28:16 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/12/09 16:30:09 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node_t *ft_node_create_new(int value)
+t_node	*ft_node_create_new(int value)
 {
-	node_t *result = malloc(sizeof(node_t));
+	t_node	*result;
+
+	result = malloc(sizeof(t_node));
 	result->value = value;
 	result->next = NULL;
-
-	return result;
+	return (result);
 }

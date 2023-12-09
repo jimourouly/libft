@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/12/09 16:01:03 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/12/09 16:25:44 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,18 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 
+typedef struct s_node {
+	int				value;
+	int				step;
+	struct s_node	*next;
+}	t_node;
 
-struct node {
-	int value;
-	int step;
-	struct node* next;
-};
-typedef struct node node_t;
-
-void	ft_node_append(node_t *current, int value);
-void	ft_node_insert_from_end(node_t **head, node_t* newnode);
-void	ft_node_print_list(node_t *head);
-node_t	*ft_node_find(node_t *head, int value);
-node_t	*ft_node_insert_from_beg(node_t **head, node_t *node_to_insert);
-node_t	*ft_node_create_new(int value);
-void	ft_node_del(node_t *head);
+void	ft_node_append(t_node *current, int value);
+void	ft_node_insert_from_end(t_node **head, t_node *newnode);
+void	ft_node_print_list(t_node *head);
+t_node	*ft_node_find(t_node *head, int value);
+t_node	*ft_node_insert_from_beg(t_node **head, t_node *node_to_insert);
+t_node	*ft_node_create_new(int value);
+void	ft_node_del(t_node *head);
 
 #endif
