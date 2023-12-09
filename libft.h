@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/25 19:26:25 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/12/09 15:26:27 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <ctype.h>
+# include <stdio.h>
 
 int		ft_isascii(int c);
 int		ft_isalpha(int c);
@@ -70,5 +71,21 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+
+
+struct node {
+	int value;
+	int step;
+	struct node* next;
+};
+typedef struct node node_t;
+
+void ft_node_append(node_t *current, int value);
+void ft_node_insert_from_end(node_t **head, node_t* newnode);
+void ft_node_print_list(node_t *head);
+node_t *ft_node_find(node_t *head, int value);
+node_t *ft_node_insert_from_beg(node_t **head, node_t *node_to_insert);
+node_t *ft_node_create_new(int value);
+
 
 #endif

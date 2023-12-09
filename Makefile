@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/10/29 16:35:38 by jroulet          ###   ########.fr        #
+#    Updated: 2023/12/09 15:36:34 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,13 @@ SRCS = ft_isascii.c\
 	   ft_putstr_fd.c \
 	   ft_putendl_fd.c \
 	   ft_putnbr_fd.c\
+	   ft_node_append.c\
+	   ft_node_create_new.c\
+	   ft_node_find.c\
+	   ft_node_insert_from_beg.c\
+	   ft_node_insert_from_end.c\
+	   ft_node_print_list.c\
+
 
 BSRCS = ft_lstnew.c\
 		ft_lstadd_front.c\
@@ -80,6 +87,11 @@ BOBJS = $(BSRCS:%.c=%.o)
 RM = rm -f
 
 all: $(NAME)
+
+git: clean
+	git add *.c, 
+	git commit -m "$m"
+	git push
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
@@ -103,4 +115,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re bonus git
