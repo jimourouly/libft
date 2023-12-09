@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2023/12/09 15:36:34 by jroulet          ###   ########.fr        #
+#    Updated: 2023/12/09 16:01:55 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ RM = rm -f
 all: $(NAME)
 
 git: clean
-	git add *.c, 
+	git add * 
 	git commit -m "$m"
 	git push
 

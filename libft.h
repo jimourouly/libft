@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/12/09 15:26:27 by jroulet          ###   ########.fr       */
+/*   Updated: 2023/12/09 16:01:03 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ struct node {
 };
 typedef struct node node_t;
 
-void ft_node_append(node_t *current, int value);
-void ft_node_insert_from_end(node_t **head, node_t* newnode);
-void ft_node_print_list(node_t *head);
-node_t *ft_node_find(node_t *head, int value);
-node_t *ft_node_insert_from_beg(node_t **head, node_t *node_to_insert);
-node_t *ft_node_create_new(int value);
-
+void	ft_node_append(node_t *current, int value);
+void	ft_node_insert_from_end(node_t **head, node_t* newnode);
+void	ft_node_print_list(node_t *head);
+node_t	*ft_node_find(node_t *head, int value);
+node_t	*ft_node_insert_from_beg(node_t **head, node_t *node_to_insert);
+node_t	*ft_node_create_new(int value);
+void	ft_node_del(node_t *head);
 
 #endif
