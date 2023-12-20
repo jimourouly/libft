@@ -85,5 +85,8 @@ t_node	*ft_node_find(t_node *head, int value);
 t_node	*ft_node_insert_from_beg(t_node **head, t_node *node_to_insert);
 t_node	*ft_node_create_new(int value);
 void	ft_node_del(t_node *head);
+void    ft_node_move_to_front(t_node **head, t_node *node_to_move);
+void    ft_node_move_to_end(t_node **head, t_node *node_to_move);
+void    ft_node_sort(t_node **head);
 
 #endif
