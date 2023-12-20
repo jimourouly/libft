@@ -66,6 +66,10 @@ SRCS = ft_isascii.c\
 	   ft_node_insert_from_beg.c\
 	   ft_node_insert_from_end.c\
 	   ft_node_print_list.c\
+	   ft_node_del.c\
+	   ft_node_move_to_end.c\
+	   ft_node_move_to_front.c\
+	   ft_node_sort.c
 
 
 BSRCS = ft_lstnew.c\
