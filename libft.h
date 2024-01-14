@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/12/09 16:25:44 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/01/14 12:57:11 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,7 @@ t_node	*ft_node_find(t_node *head, int value);
 t_node	*ft_node_insert_from_beg(t_node **head, t_node *node_to_insert);
 t_node	*ft_node_create_new(int value);
 void	ft_node_del(t_node *head);
+
+char	*ft_strcat(char *dest, char *src);
 
 #endif
