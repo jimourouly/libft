@@ -14,7 +14,7 @@
 
 void	ft_node_del(t_node *head)
 {
-	node_t	*temp;
+	t_node	*temp;
 
 	while (head != NULL)
 	{
