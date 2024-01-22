@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <ctype.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 int		ft_isascii(int c);
 int		ft_isalpha(int c);
@@ -90,5 +91,24 @@ void    ft_node_move_to_end(t_node **head, t_node *node_to_move);
 void    ft_node_sort(t_node **head);
 
 char	*ft_strcat(char *dest, char *src);
+
+int		ft_printf(const char *str, ...);
+int		ft_forcheck(va_list args, const char format);
+int		ft_print_char(int c);
+int		ft_print_str(char *str);
+int		ft_print_nbr(int n);
+int		ft_print_percent(void);
+
+int		ft_print_ptr(unsigned long ptr);
+int		ft_ptr_len(uintptr_t ptr);
+void	ft_ptr_calc(uintptr_t ptr);
+
+int		ft_print_uns(unsigned int uns);
+char	*ft_uitoa(unsigned int n);
+int		ft_uns_len(unsigned int uns);
+
+int		ft_print_hex(unsigned int hex, const char format);
+void	ft_put_hex(unsigned int hex, const char format);
+int		ft_hex_len(unsigned int hex);
 
 #endif
