@@ -6,13 +6,13 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/11 13:22:30 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/14 13:28:34 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/14 13:29:32 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int ft_atoli(const char *nptr)
+long int	ft_atoli(const char *nptr)
 {
 	long int	i;
 	long int	res;
