@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/14 13:31:51 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/14 15:23:39 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,22 +74,7 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 
-typedef struct s_node {
-	int				value;
-	int				step;
-	struct s_node	*next;
-}	t_node;
-
-void		ft_node_append(t_node *current, int value);
-void		ft_node_insert_from_end(t_node **head, t_node *newnode);
-void		ft_node_print_list(t_node *head);
-t_node		*ft_node_find(t_node *head, int value);
-t_node		*ft_node_insert_from_beg(t_node **head, t_node *node_to_insert);
-t_node		*ft_node_create_new(int value);
-void		ft_node_del(t_node *head);
-void		ft_node_move_to_front(t_node **head, t_node *node_to_move);
-void		ft_node_move_to_end(t_node **head, t_node *node_to_move);
-void		ft_node_sort(t_node **head);
+void		ft_lstprint(t_list *head);
 
 char		*ft_strcat(char *dest, char *src);
 
