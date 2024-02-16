@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/14 15:23:39 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 15:23:49 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,21 @@ size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-typedef struct s_list
+typedef struct	s_list
 {
-	void			*content;
+	int				content;
 	struct s_list	*next;
 }	t_list;
 
-t_list		*ft_lstnew(void *content);
+
+/*typedef struct	s_node
+{
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
+}	t_node;
+*/
+t_list		*ft_lstnew(int content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list	*lst);
 t_list		*ft_lstlast(t_list *lst);
