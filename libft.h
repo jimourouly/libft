@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/16 15:23:49 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 17:10:16 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,11 @@ size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 
-typedef struct	s_list
+typedef struct s_list
 {
 	int				content;
 	struct s_list	*next;
 }	t_list;
-
 
 /*typedef struct	s_node
 {
