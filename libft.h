@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <ctype.h>
 # include <stdio.h>
+# include <stdint.h>
 # include <stdarg.h>
 
 int			ft_isascii(int c);
