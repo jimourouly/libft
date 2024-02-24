@@ -79,6 +79,7 @@ SRCS = ft_atoi.c\
 	   ft_tolower.c\
 	   ft_toupper.c\
 	   ft_uitoa.c\
+	   ft_strcpy.c\
 	   #ft_lstdelone.c\
 	   #ft_lstiter.c\
 	   #ft_lstmap.c
