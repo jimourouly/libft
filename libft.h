@@ -66,13 +66,13 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-/*typedef struct	s_node
+typedef struct	s_node
 {
 	int				value;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
-*/
+
 t_list		*ft_lstnew(int content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list	*lst);
