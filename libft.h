@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/16 17:10:16 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/05 14:04:20 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,10 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct	s_node
+typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_node;
