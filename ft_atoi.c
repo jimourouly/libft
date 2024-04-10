@@ -6,13 +6,12 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 19:21:42 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 17:58:33 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/10 18:00:02 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//comm
 int	ft_atoi(const char *nptr)
 {
 	int	i;
