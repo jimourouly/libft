@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
+#    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2024/02/16 16:42:00 by jroulet          ###   ########.fr        #
+#    Updated: 2024/04/10 18:07:36 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,6 +80,7 @@ SRCS = ft_atoi.c\
 	   ft_toupper.c\
 	   ft_uitoa.c\
 	   ft_strcpy.c\
+	   ft_log.c\
 	   #ft_lstdelone.c\
 	   #ft_lstiter.c\
 	   #ft_lstmap.c
@@ -89,14 +90,14 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 git: clean
-	git add * 
+	git add *
 	git commit -m "$t" -m "$b"
 	git push
 
 $(NAME):  $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-#compile : all 
+#compile : all
 #	$(CC) $(CFLAGS) $(MAIN) $(NAME) $(OBJS) #$(LIBS)
 
 %.o: %.c
