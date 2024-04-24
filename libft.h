@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 18:07:06 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:22:07 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,6 @@ int			ft_hex_len(unsigned int hex);
 
 long int	ft_atoli(const char *nptr);
 int			ft_log(int n, int log);
+int			ft_pow(int base, int power);
+int			ft_inttobin(int n);
 #endif
