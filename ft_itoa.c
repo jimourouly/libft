@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 21:22:15 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/25 12:05:10 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 18:20:42 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ long	charcounter(int nbr)
 		nbr = -nbr;
 	}
 	if (nbr == 0)
-			i ++;
+		i ++;
 	while (nbr != 0)
 	{
 		nbr /= 10;
