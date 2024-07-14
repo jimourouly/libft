@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:22:07 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/07/14 16:53:22 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdint.h>
 # include <stdarg.h>
+# include <stdbool.h>
 
 int			ft_isascii(int c);
 int			ft_isalpha(int c);
@@ -32,6 +33,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 int			ft_strcmp(const char *a, const char *b);
 void		ft_strcpy(char *dst, const char *src);
+void		ft_free_char_tab(char **matrix);
 
 char		*ft_strchr(const char *s, int c);
 char		*ft_strrchr(const char *s, int c);
@@ -55,6 +57,7 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+bool		ft_c_in_s(const char *str, int ch);
 
 size_t		ft_strlen(const char *s);
 size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize);
@@ -83,6 +86,8 @@ void		ft_lstdelone(t_list *lst, void (*del)(void *));
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+char		*trim_free(char *s1, char const *set);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
 
 void		ft_lstprint(t_list *head);
 

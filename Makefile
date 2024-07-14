@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2024/04/24 17:17:03 by jroulet          ###   ########.fr        #
+#    Updated: 2024/07/14 16:53:34 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,9 @@ SRCS = ft_atoi.c\
 	   ft_log.c\
 	   ft_pow.c\
 	   ft_inttobin.c\
+	   ft_free_char_tab.c\
+	   ft_c_in_s.c\
+	   ft_strncpy.c\
 	   #ft_lstdelone.c\
 	   #ft_lstiter.c\
 	   #ft_lstmap.c
