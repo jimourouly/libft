@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/07/14 16:53:22 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/07/14 16:55:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
 char		*trim_free(char *s1, char const *set);
-char	*ft_strncpy(char *dest, const char *src, size_t n);
+char		*ft_strncpy(char *dest, const char *src, size_t n);
 
 void		ft_lstprint(t_list *head);
 
