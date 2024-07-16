@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:44:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/07/14 16:44:54 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:44:06 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_free_char_tab(char **matrix)
 		return ;
 	while (matrix[i])
 	{
+		ft_printf("freeing %p c= %s\n", matrix[i], matrix [i]);
 		free(matrix[i]);
 		matrix[i] = NULL;
 		i += 1;
