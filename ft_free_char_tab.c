@@ -6,26 +6,26 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 16:44:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/08/10 12:40:02 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/08/19 18:56:04 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_char_tab(char **matrix)
+void	ft_free_char_tab(char **chartab)
 {
 	size_t	i;
 
 	i = 0;
-	if (!matrix)
+	if (!chartab)
 		return ;
-	while (matrix[i])
+	while (chartab[i])
 	{
-		free(matrix[i]);
-		matrix[i] = NULL;
-		i ++;
+		free(chartab[i]);
+		chartab[i] = NULL;
+		i += 1;
 	}
 	if (i > 0)
-		free(matrix);
-	matrix = NULL;
+		free(chartab);
+	chartab = NULL;
 }
