@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:51:52 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/25 10:48:37 by jroulet          ###   ########.fr       */
+/*   Updated: 2025/02/12 18:21:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

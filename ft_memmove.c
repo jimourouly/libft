@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 10:06:45 by jroulet           #+#    #+#             */
-/*   Updated: 2023/10/25 12:52:37 by jroulet          ###   ########.fr       */
+/*   Updated: 2025/02/12 18:20:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			dest[i] = sour[i];
 			i++;
 		}
-	}	
+	}
 	return (dst);
 }
