@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: angela <angela@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2025/02/24 14:29:04 by jim              ###   ########.fr       */
+/*   Updated: 2025/02/24 18:01:41 by angela           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t dstsize);
 
 typedef struct s_list
 {
-	int				content;
+	void			*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -83,7 +83,7 @@ typedef struct s_list_char
 	struct s_list_char	*next;
 }				t_list_char;
 
-t_list		*ft_lstnew(int content);
+t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list	*lst);
 t_list		*ft_lstlast(t_list *lst);

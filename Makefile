@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jim <jim@student.42.fr>                    +#+  +:+       +#+         #
+#    By: angela <angela@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2025/02/24 14:25:42 by jim              ###   ########.fr        #
+#    Updated: 2025/02/24 17:12:05 by angela           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CC=gcc
 #flags de compilation
 CFLAGS= -Wall -Wextra -Werror
 
-MAIN = main.c
+#MAIN = main.c
 
 #fichiers sources
 SRCS = ft_atoi.c\
@@ -86,7 +86,7 @@ SRCS = ft_atoi.c\
 	   ft_free_char_tab.c\
 	   ft_c_in_s.c\
 	   ft_strncpy.c\
-	   ft_get_next_line_utils\
+	   ft_get_next_line.c\
 	   ft_isonstr.c\
 	   ft_get_next_line_utils.c\
 	   ft_lstdelone.c\
