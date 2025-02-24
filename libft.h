@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2024/08/19 18:19:03 by jroulet          ###   ########.fr       */
+/*   Updated: 2025/02/24 14:29:04 by jim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ typedef struct s_node
 	struct s_node	*prev;
 }	t_node;
 
+typedef struct s_list_char
+{
+	char				*cont;
+	struct s_list_char	*next;
+}				t_list_char;
+
 t_list		*ft_lstnew(int content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list	*lst);
@@ -116,4 +122,16 @@ long int	ft_atoli(const char *nptr);
 int			ft_log(int n, int log);
 int			ft_pow(int base, int power);
 int			ft_inttobin(int n);
+
+char		*get_next_line(int fd);
+t_list_char	*ft_find_last_node(t_list_char *head);
+int			ft_new_line(t_list_char *head);
+void		create_line(char **line, t_list_char *node);
+void		free_node(t_list_char *node);
+int			ft_strlen_int(const char *str);
+void		read_add_to_node(int fd, t_list_char **node);
+void		add_to_node(t_list_char **node, char *buffer, int byteread);
+void		read_line(t_list_char *node, char **line);
+int			clean_node(t_list_char **node, int i, int j);
+bool		ft_isonstr(const char *str, int ch);
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
+#    By: jim <jim@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2024/08/19 18:20:06 by jroulet          ###   ########.fr        #
+#    Updated: 2025/02/24 14:25:42 by jim              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,9 +86,12 @@ SRCS = ft_atoi.c\
 	   ft_free_char_tab.c\
 	   ft_c_in_s.c\
 	   ft_strncpy.c\
-	   #ft_lstdelone.c\
-	   #ft_lstiter.c\
-	   #ft_lstmap.c
+	   ft_get_next_line_utils\
+	   ft_isonstr.c\
+	   ft_get_next_line_utils.c\
+	   ft_lstdelone.c\
+	   ft_lstiter.c\
+	   ft_lstmap.c
 
 OBJS = $(SRCS:%.c=%.o)
 
