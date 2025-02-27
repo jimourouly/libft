@@ -6,7 +6,7 @@
 #    By: angela <angela@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2025/02/24 19:08:33 by angela           ###   ########.fr        #
+#    Updated: 2025/02/27 19:22:14 by angela           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CC=gcc
 #LIBS = -lbsd
 
 #flags de compilation
-CFLAGS= -Wall -Wextra -Werror
+CFLAGS= -Wall -Wextra -Werror -g
 
 #MAIN = main.c
 
@@ -72,6 +72,7 @@ SRCS = ft_atoi.c\
 	   ft_strlen.c\
 	   ft_strmapi.c\
 	   ft_strncmp.c\
+	   ft_strstr.c\
 	   ft_strnstr.c\
 	   ft_strrchr.c\
 	   ft_strtrim.c\
