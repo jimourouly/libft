@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: angela <angela@student.42.fr>              +#+  +:+       +#+         #
+#    By: ahanzi <ahanzi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 08:49:25 by jroulet           #+#    #+#              #
-#    Updated: 2025/02/27 20:09:46 by angela           ###   ########.fr        #
+#    Updated: 2025/03/02 16:47:59 by ahanzi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ SRCS = ft_atoi.c\
 	   ft_isalpha.c\
 	   ft_isdigit.c\
 	   ft_isalpha.c\
-	   ft_isalpha.c\
+	   ft_isspace.c\
 	   ft_isprint.c\
 	   ft_itoa.c\
 	   ft_lstadd_back.c\
