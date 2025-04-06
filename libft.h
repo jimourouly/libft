@@ -6,7 +6,7 @@
 /*   By: ahanzi <ahanzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 08:54:15 by jroulet           #+#    #+#             */
-/*   Updated: 2025/03/02 16:48:05 by ahanzi           ###   ########.fr       */
+/*   Updated: 2025/04/06 11:47:35 by ahanzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,14 +127,11 @@ int			ft_pow(int base, int power);
 int			ft_inttobin(int n);
 
 char		*get_next_line(int fd);
-t_list_char	*ft_find_last_node(t_list_char *head);
-int			ft_new_line(t_list_char *head);
-void		create_line(char **line, t_list_char *node);
-void		free_node(t_list_char *node);
-int			ft_strlen_int(const char *str);
-void		read_add_to_node(int fd, t_list_char **node);
-void		add_to_node(t_list_char **node, char *buffer, int byteread);
-void		read_line(t_list_char *node, char **line);
-int			clean_node(t_list_char **node, int i, int j);
+char		*read_buffsize(int fd, char *global_buffer);
+char		*get_line(char *global_buffer);
+char		*clean_printed(char	*global_buffer);
+char		*join_n_free(char *global_buffer, char *local_buffer);
 bool		ft_isonstr(const char *str, int ch);
+void		free_global_buffer(void);
+
 #endif

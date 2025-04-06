@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanzi <ahanzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 00:47:06 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2025/02/24 14:24:15 by jim              ###   ########.fr       */
+/*   Updated: 2025/04/06 11:47:50 by ahanzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,25 @@
 # define BUFFER_SIZE 5
 #endif
 
-static char	*clean_printed(char	*global_buffer)
-{
-	size_t	i;
-	char	*new;
-	size_t	j;
+static char	*global_buffer[FOPEN_MAX];
 
-	i = 0;
-	while (global_buffer[i] && global_buffer[i] != '\n')
-		i++;
-	if (!global_buffer[i])
+void	free_global_buffer(void)
+{
+	int	fd;
+
+	fd = 0;
+	while (fd < FOPEN_MAX)
 	{
-		free(global_buffer);
-		return (NULL);
+		if (global_buffer[fd])
+		{
+			free(global_buffer[fd]);
+			global_buffer[fd] = NULL;
+		}
+		fd++;
 	}
-	new = malloc(((ft_strlen_int(global_buffer) - i) + 1) * sizeof(char));
-	if (!new)
-		return (NULL);
-	i++;
-	j = 0;
-	while (global_buffer[i])
-		new[j++] = global_buffer[i++];
-	new[j] = '\0';
-	free(global_buffer);
-	return (new);
 }
 
-static char	*get_line(char *global_buffer)
+char	*get_line(char *global_buffer)
 {
 	size_t	len;
 	size_t	i;
@@ -66,34 +58,7 @@ static char	*get_line(char *global_buffer)
 	return (line);
 }
 
-static char	*join_n_free(char *global_buffer, char *local_buffer)
-{
-	size_t	len_global;
-	size_t	len_local;
-	char	*appended;
-	size_t	i;
-	size_t	j;
-
-	if (!global_buffer || !local_buffer)
-		return (NULL);
-	len_global = ft_strlen_int(global_buffer);
-	len_local = ft_strlen_int(local_buffer);
-	appended = malloc((len_global + len_local + 1) * sizeof(char));
-	if (!appended)
-		return (NULL);
-	i = 0;
-	j = 0;
-	while (j < len_global)
-		appended[i++] = global_buffer[j++];
-	j = 0;
-	while (j < len_local)
-		appended[i++] = local_buffer[j++];
-	appended[i] = '\0';
-	free(global_buffer);
-	return (appended);
-}
-
-static char	*read_buffsize(int fd, char *global_buffer)
+char	*read_buffsize(int fd, char *global_buffer)
 {
 	char	*buffer;
 	int		bytes_rd;
@@ -124,7 +89,6 @@ static char	*read_buffsize(int fd, char *global_buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*global_buffer[FOPEN_MAX];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)

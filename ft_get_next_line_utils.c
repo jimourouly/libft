@@ -1,96 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_get_next_line_utils.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ahanzi <ahanzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:09:46 by jroulet           #+#    #+#             */
-/*   Updated: 2025/02/24 14:23:21 by jim              ###   ########.fr       */
+/*   Updated: 2025/04/06 11:45:50 by ahanzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list_char	*ft_find_last_node(t_list_char *head)
+char	*clean_printed(char	*global_buffer)
 {
-	t_list_char	*current;
+	size_t	i;
+	char	*new;
+	size_t	j;
 
-	current = head;
-	if (current == NULL)
-		return (NULL);
-	while (current && current->next)
-	{
-		current = current->next;
-	}
-	return (current);
-}
-
-int	ft_new_line(t_list_char *head)
-{
-	int			i;
-	t_list_char	*temp;
-
-	if (head == NULL)
-		return (0);
-	temp = ft_find_last_node(head);
 	i = 0;
-	while (temp->cont[i])
-	{
-		if (temp->cont[i] == '\n')
-			return (1);
+	while (global_buffer[i] && global_buffer[i] != '\n')
 		i++;
-	}
-	return (0);
-}
-
-void	create_line(char **line, t_list_char *node)
-{
-	int	i;
-	int	len;
-
-	len = 0;
-	while (node)
+	if (!global_buffer[i])
 	{
-		i = 0;
-		while (node->cont[i])
-		{
-			if (node->cont[i] == '\n')
-			{
-				len ++;
-				break ;
-			}
-			len ++;
-			i++;
-		}
-		node = node->next;
+		free(global_buffer);
+		return (NULL);
 	}
-	*line = malloc(sizeof(char) * (len + 1));
+	new = malloc((((int)ft_strlen(global_buffer) - i) + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
+	i++;
+	j = 0;
+	while (global_buffer[i])
+		new[j++] = global_buffer[i++];
+	new[j] = '\0';
+	free(global_buffer);
+	return (new);
 }
 
-void	free_node(t_list_char *node)
+char	*join_n_free(char *global_buffer, char *local_buffer)
 {
-	t_list_char	*current;
-	t_list_char	*next;
+	size_t	len_global;
+	size_t	len_local;
+	char	*appended;
+	size_t	i;
+	size_t	j;
 
-	if (node == NULL)
-		return ;
-	current = node;
-	while (current)
-	{
-		free(current->cont);
-		next = current->next;
-		free(current);
-		current = next;
-	}
-}
-
-int	ft_strlen_int(const char *str)
-{
-	int	len;
-
-	len = 0;
-	while (*(str++))
-		len++;
-	return (len);
+	if (!global_buffer || !local_buffer)
+		return (NULL);
+	len_global = ft_strlen(global_buffer);
+	len_local = ft_strlen(local_buffer);
+	appended = malloc((len_global + len_local + 1) * sizeof(char));
+	if (!appended)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (j < len_global)
+		appended[i++] = global_buffer[j++];
+	j = 0;
+	while (j < len_local)
+		appended[i++] = local_buffer[j++];
+	appended[i] = '\0';
+	free(global_buffer);
+	return (appended);
 }
