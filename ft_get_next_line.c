@@ -6,33 +6,15 @@
 /*   By: ahanzi <ahanzi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 00:47:06 by nnuno-ca          #+#    #+#             */
-/*   Updated: 2025/04/06 11:47:50 by ahanzi           ###   ########.fr       */
+/*   Updated: 2025/04/06 19:48:41 by ahanzi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
+# define BUFFER_SIZE 1
 #endif
-
-static char	*global_buffer[FOPEN_MAX];
-
-void	free_global_buffer(void)
-{
-	int	fd;
-
-	fd = 0;
-	while (fd < FOPEN_MAX)
-	{
-		if (global_buffer[fd])
-		{
-			free(global_buffer[fd]);
-			global_buffer[fd] = NULL;
-		}
-		fd++;
-	}
-}
 
 char	*get_line(char *global_buffer)
 {
@@ -90,6 +72,7 @@ char	*read_buffsize(int fd, char *global_buffer)
 char	*get_next_line(int fd)
 {
 	char		*line;
+	static char	*global_buffer[FOPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FOPEN_MAX)
 		return (NULL);
